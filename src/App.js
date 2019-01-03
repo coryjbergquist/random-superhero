@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import SuperHeroNamesContainer from './containers/SuperHeroNamesContainer'
+import SuperheroNamesContainer from './containers/SuperheroNamesContainer'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-        <p>
-          <SuperHeroNamesContainer />
-        </p>
           <p>
-            This is text
+            <h2>Pick your superhero for today!</h2>
           </p>
+
+          <p>
+            <SuperheroNamesContainer />
+          </p>
+
         </header>
       </div>
     );
