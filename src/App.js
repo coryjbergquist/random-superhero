@@ -11,7 +11,7 @@ class App extends Component {
             This is text
           </p>
           <p>
-          {hi}
+          {hi.names[Math.floor(Math.random() * hi.names.length)]}
           </p>
         </header>
       </div>
