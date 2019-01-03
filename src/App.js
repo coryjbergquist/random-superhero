@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import hi from './containers/test'
 import SuperHeroNamesContainer from './containers/SuperHeroNamesContainer'
 
 class App extends Component {
@@ -13,9 +12,6 @@ class App extends Component {
         </p>
           <p>
             This is text
-          </p>
-          <p>
-          {hi.names[Math.floor(Math.random() * hi.names.length)]}
           </p>
         </header>
       </div>
