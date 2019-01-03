@@ -1,3 +1,14 @@
-const hi = {names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"], age: "1 million"}
+import React from 'react'
 
-export default hi
+class SuperHeroNamesContainer extends React.Component {
+
+  render() {
+    return (
+      <p>
+        yo
+      </p>
+    )
+  }
+}
+
+export default SuperHeroNamesContainer
