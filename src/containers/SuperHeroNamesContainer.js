@@ -6,9 +6,9 @@ class SuperheroNamesContainer extends React.Component {
     this.state = {names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"], randomName: ""}
   }
 
-  showName = event => {
+  getName = event => {
     console.log("hi")
-    this.setState({names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"]})
+    this.setState(this.state)
   };
 
   render() {
@@ -18,7 +18,7 @@ class SuperheroNamesContainer extends React.Component {
 
       <div>
       <p>
-        <button onClick={this.showName}>Generate Hero!</button>
+        <button onClick={this.getName}>Generate Hero!</button>
       </p>
 
         <p>
