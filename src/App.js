@@ -11,9 +11,9 @@ class App extends Component {
             Pick your superhero for today!
           </p>
 
-          <p>
+          <div>
             <SuperheroNamesContainer />
-          </p>
+          </div>
 
         </header>
       </div>
