@@ -21,13 +21,23 @@ class SuperheroNamesContainer extends React.Component {
     })
   }
 
-  handleClick = event => {
-    event.preventDefault();
+  // handleClick = event => {
+  //   event.preventDefault();
+  //   console.log(`adding the name: ${this.state.newName}`)
+  //   this.setState({
+  //     names: this.state.names.push(this.state.newName),
+  //     newName: ""
+  //   })
+  // }
+
+  nameSubmit = event => {
+    event.preventDefault()
+    console.log(`names before the add: ${this.state.names}`)
     console.log(`adding the name: ${this.state.newName}`)
-    this.setState({
-      names: this.state.names.push(this.state.newName),
+    this.setState(prevState => ({
+      names: [this.state.newName, ...prevState.names],
       newName: ""
-    })
+    }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
   }
 
   // handleSubmit = event => {
@@ -39,8 +49,6 @@ class SuperheroNamesContainer extends React.Component {
   // }
 
   render() {
-
-
     return (
 
       <div>
@@ -54,12 +62,13 @@ class SuperheroNamesContainer extends React.Component {
 
         <div>
           <form>
-            <input type="text" name="name" onChange={this.handleChange} />
-            <input type="submit" onClick={this.handleClick} value="Submit" />
+            <input type="text" name="name" onChange={this.handleChange} value={this.state.newName}/>
+            <button onClick={this.nameSubmit}>Submit new hero</button>
+            {/* <input type="submit" onClick={this.handleClick} value="Submit" /> */}
           </form>
         </div>
         <p>
-          Full list of superheroes: {this.state.names.join(", ")}
+          {/* Full list of superheroes: {this.state.names.join(", ")} */}
         </p>
       </div>
 
