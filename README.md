@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Random Superhero for the day:
+
+A web application for generating you superhero to inspire you for the day. Users can click the "generate superhero" button to assign themselves and superhero for the day, and also add new superheroes.
+
 ## Available Scripts
 
 In the project directory, you can run:
