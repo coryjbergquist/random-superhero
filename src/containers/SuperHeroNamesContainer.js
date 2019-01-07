@@ -11,13 +11,6 @@ class SuperheroNamesContainer extends React.Component {
     }
   }
 
-  getName = event => {
-    this.setState({
-      randomName: this.state.names[Math.floor(Math.random() * this.state.names.length)]
-    })
-    console.log("generated new name from list")
-  };
-
   handleChange = event => {
     this.setState({
       names: this.state.names,
@@ -25,14 +18,12 @@ class SuperheroNamesContainer extends React.Component {
     })
   }
 
-  // handleClick = event => {
-  //   event.preventDefault();
-  //   console.log(`adding the name: ${this.state.newName}`)
-  //   this.setState({
-  //     names: this.state.names.push(this.state.newName),
-  //     newName: ""
-  //   })
-  // }
+  getName = event => {
+    this.setState({
+      randomName: this.state.names[Math.floor(Math.random() * this.state.names.length)]
+    })
+    console.log("generated new name from list")
+  };
 
   nameSubmit = event => {
     event.preventDefault()
@@ -44,42 +35,24 @@ class SuperheroNamesContainer extends React.Component {
     }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   console.log("from submit")
-  //   this.setState({
-  //     names: this.state.names.push(event.value)
-  //   });
-  // }
-
   render() {
     return (
 
-      <div id="yo">
+      <div>
         <p>
           <button onClick={this.getName}>Generate Hero!</button>
         </p>
-
         <p>
           {/* for showing the empty this.state.randomName, which will be updated on button click */ }
           {this.state.randomName}
-        </p>
-
-        <p>
-          {/* getting random name from this.state.names during each render */}
-          {/* {this.state.names[Math.floor(Math.random() * this.state.names.length)]} */}
         </p>
 
         <div>
           <form>
             <input type="text" name="name" onChange={this.handleChange} value={this.state.newName}/>
             <button onClick={this.nameSubmit}>Submit new hero</button>
-            {/* <input type="submit" onClick={this.handleClick} value="Submit" /> */}
           </form>
         </div>
-        <p>
-          {/* Full list of superheroes: {this.state.names.join(", ")} */}
-        </p>
       </div>
 
     )
