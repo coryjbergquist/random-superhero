@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 
 class SuperheroNamesContainer extends React.Component {
   constructor(props) {
@@ -29,10 +28,14 @@ class SuperheroNamesContainer extends React.Component {
     event.preventDefault()
     console.log(`names before the add: ${this.state.names}`)
     console.log(`adding the name: ${this.state.newName}`)
-    this.setState(prevState => ({
+    if (this.state.newName !== "") {
+      this.setState(prevState => ({
       names: [this.state.newName, ...prevState.names],
       newName: ""
     }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
+  } else {
+    alert("Name cannot be blank")
+  }
   }
 
   render() {
