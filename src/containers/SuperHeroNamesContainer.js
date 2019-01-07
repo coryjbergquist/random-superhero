@@ -1,4 +1,5 @@
 import React from 'react'
+import badWords from '../components/BadWords'
 
 class SuperheroNamesContainer extends React.Component {
   constructor(props) {
@@ -28,13 +29,13 @@ class SuperheroNamesContainer extends React.Component {
     event.preventDefault()
     console.log(`names before the add: ${this.state.names}`)
     console.log(`adding the name: ${this.state.newName}`)
-    if (this.state.newName !== "") {
+    if (this.state.newName !== "" && badWords.includes(this.state.newName) === false) {
       this.setState(prevState => ({
       names: [this.state.newName, ...prevState.names],
       newName: ""
     }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
   } else {
-    alert("Name cannot be blank")
+    alert("Name cannot be blank, or contain naughty words")
   }
   }
 
@@ -62,4 +63,4 @@ class SuperheroNamesContainer extends React.Component {
   }
 }
 
-export default SuperheroNamesContainer
+export default SuperheroNamesContainer;
