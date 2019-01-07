@@ -1,17 +1,21 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
 
 class SuperheroNamesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"],
+      randomName: "",
       newName: ""
     }
   }
 
   getName = event => {
+    this.setState({
+      randomName: this.state.names[Math.floor(Math.random() * this.state.names.length)]
+    })
     console.log("generated new name from list")
-    this.setState(this.state)
   };
 
   handleChange = event => {
@@ -51,13 +55,19 @@ class SuperheroNamesContainer extends React.Component {
   render() {
     return (
 
-      <div>
+      <div id="yo">
         <p>
           <button onClick={this.getName}>Generate Hero!</button>
         </p>
 
         <p>
-          {this.state.names[Math.floor(Math.random() * this.state.names.length)]}
+          {/* for showing the empty this.state.randomName, which will be updated on button click */ }
+          {this.state.randomName}
+        </p>
+
+        <p>
+          {/* getting random name from this.state.names during each render */}
+          {/* {this.state.names[Math.floor(Math.random() * this.state.names.length)]} */}
         </p>
 
         <div>
