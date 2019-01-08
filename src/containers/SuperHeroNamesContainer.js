@@ -11,6 +11,22 @@ class SuperheroNamesContainer extends React.Component {
     }
   }
 
+  titleCase = (str) => {
+    let newName = str.split(' ')
+   .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+   .join(' ')
+   return newName;
+  }
+
+  checkAll = (name, badWords) => {
+    let array = name.toLowerCase().split(" ")
+    if ( array.some(function(word) {return badWords.includes(word)}) ) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   handleChange = event => {
     this.setState({
       names: this.state.names,
@@ -29,9 +45,9 @@ class SuperheroNamesContainer extends React.Component {
     event.preventDefault()
     console.log(`names before the add: ${this.state.names}`)
     console.log(`adding the name: ${this.state.newName}`)
-    if (this.state.newName !== "" && badWords.includes(this.state.newName) === false) {
+    if (this.state.newName !== "" && this.checkAll(this.state.newName, badWords)) {
       this.setState(prevState => ({
-      names: [this.state.newName, ...prevState.names],
+      names: [this.titleCase(this.state.newName), ...prevState.names],
       newName: ""
     }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
   } else {
@@ -45,6 +61,9 @@ class SuperheroNamesContainer extends React.Component {
       <div>
         <p>
           <button onClick={this.getName}>Generate Hero!</button>
+        </p>
+        <p>
+          This is your hero for the day:
         </p>
         <p>
           {/* for showing the empty this.state.randomName, which will be updated on button click */ }
