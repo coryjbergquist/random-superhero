@@ -43,7 +43,6 @@ class SuperheroNamesContainer extends React.Component {
 
   nameSubmit = event => {
     event.preventDefault()
-    console.log(`names before the add: ${this.state.names}`)
     console.log(`adding the name: ${this.state.newName}`)
     if (this.state.newName !== "" && this.checkAll(this.state.newName, badWords)) {
       this.setState(prevState => ({
