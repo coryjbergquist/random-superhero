@@ -18,7 +18,7 @@ class SuperheroNamesContainer extends React.Component {
    return newName;
   }
 
-  checkAll = (name, badWords) => {
+  checkBadWords = (name, badWords) => {
     let array = name.toLowerCase().split(" ")
     if ( array.some(function(word) {return badWords.includes(word)}) ) {
       return false
@@ -44,7 +44,7 @@ class SuperheroNamesContainer extends React.Component {
   nameSubmit = event => {
     event.preventDefault()
     console.log(`adding the name: ${this.state.newName}`)
-    if (this.state.newName !== "" && this.checkAll(this.state.newName, badWords)) {
+    if (this.state.newName !== "" && this.checkBadWords(this.state.newName, badWords)) {
       this.setState(prevState => ({
       names: [this.titleCase(this.state.newName), ...prevState.names],
       newName: ""
