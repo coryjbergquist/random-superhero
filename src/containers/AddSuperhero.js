@@ -55,7 +55,8 @@ class AddSuperhero extends React.Component {
         <SuperheroNamesContainer allNames = {this.state.names}/>
         <div>
           <form>
-            <input type="text" name="name" onChange={this.handleChange} value={this.state.newName}/>
+            <label for="name"> Enter a new Superhero! </label>
+            <input type="text" id= "name" name="name" onChange={this.handleChange} value={this.state.newName}/>
             <button onClick={this.nameSubmit}>Submit new hero</button>
           </form>
         </div>
