@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import SuperheroNamesContainer from './containers/SuperheroNamesContainer'
 import AddSuperhero from './containers/AddSuperhero'
 
 class App extends Component {
@@ -8,9 +7,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
+
             Pick your superhero for today!
-          </p>
 
           <div>
             <AddSuperhero />

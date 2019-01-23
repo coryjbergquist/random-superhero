@@ -35,13 +35,6 @@ class AddSuperhero extends React.Component {
     })
   }
 
-  getName = event => {
-    this.setState({
-      randomName: this.state.names[Math.floor(Math.random() * this.state.names.length)]
-    })
-    console.log("generated new name from list")
-  };
-
   nameSubmit = event => {
     event.preventDefault()
     console.log(`adding the name: ${this.state.newName}`)
@@ -59,11 +52,7 @@ class AddSuperhero extends React.Component {
     return (
 
       <div>
-        <p>
-          {/* for showing the empty this.state.randomName, which will be updated on button click */ }
-          <SuperheroNamesContainer allNames = {this.state.names}/>
-        </p>
-
+        <SuperheroNamesContainer allNames = {this.state.names}/>
         <div>
           <form>
             <input type="text" name="name" onChange={this.handleChange} value={this.state.newName}/>
