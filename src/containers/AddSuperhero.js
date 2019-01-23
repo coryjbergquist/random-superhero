@@ -7,7 +7,6 @@ class AddSuperhero extends React.Component {
     super(props);
     this.state = {
       names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"],
-      randomName: "",
       newName: ""
     }
   }
