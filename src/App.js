@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SuperheroNamesContainer from './containers/SuperheroNamesContainer'
+import AddSuperhero from './containers/AddSuperhero'
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
           </p>
 
           <div>
-            <SuperheroNamesContainer />
+            <AddSuperhero />
           </div>
 
         </header>

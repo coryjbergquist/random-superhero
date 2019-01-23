@@ -5,34 +5,11 @@ class SuperheroNamesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"],
+      names: this.props.allNames,
       randomName: "",
-      newName: ""
     }
   }
 
-  titleCase = (str) => {
-    let newName = str.split(' ')
-   .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
-   .join(' ')
-   return newName;
-  }
-
-  checkBadWords = (name, badWords) => {
-    let array = name.toLowerCase().split(" ")
-    if ( array.some(function(word) {return badWords.includes(word)}) ) {
-      return false
-    } else {
-      return true
-    }
-  }
-
-  handleChange = event => {
-    this.setState({
-      names: this.state.names,
-      newName: event.target.value
-    })
-  }
 
   getName = event => {
     this.setState({
@@ -41,18 +18,7 @@ class SuperheroNamesContainer extends React.Component {
     console.log("generated new name from list")
   };
 
-  nameSubmit = event => {
-    event.preventDefault()
-    console.log(`adding the name: ${this.state.newName}`)
-    if (this.state.newName !== "" && this.checkBadWords(this.state.newName, badWords)) {
-      this.setState(prevState => ({
-      names: [this.titleCase(this.state.newName), ...prevState.names],
-      newName: ""
-    }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
-  } else {
-    alert("Name cannot be blank, or contain naughty words")
-  }
-  }
+
 
   render() {
     return (
@@ -69,12 +35,6 @@ class SuperheroNamesContainer extends React.Component {
           {this.state.randomName}
         </p>
 
-        <div>
-          <form>
-            <input type="text" name="name" onChange={this.handleChange} value={this.state.newName}/>
-            <button onClick={this.nameSubmit}>Submit new hero</button>
-          </form>
-        </div>
       </div>
 
     )
