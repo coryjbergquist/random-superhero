@@ -49,7 +49,8 @@ class AddSuperhero extends React.Component {
       console.log(this.state.newName)
       this.setState(prevState => ({
       names: [{[this.titleCase(this.state.newName)]: this.state.newPower}, ...prevState.names],
-      newName: ""
+      newName: "",
+      newPower: ""
     }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
   } else {
     alert("Name cannot be blank, or contain naughty words")
