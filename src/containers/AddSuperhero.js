@@ -8,6 +8,7 @@ class AddSuperhero extends React.Component {
     this.state = {
       names: [{"Superman": "can fly"}, {"Batman": "has money"}, {"Thor": "is strong"}, {"Iron man": "has a big brain"}, {"Dr. Strange": "has magic"}, {"Spiderman": "can shoot webs"}, {"Aquaman": "can breathe under water"}],
       newName: "",
+      newPower: "",
     }
   }
 
@@ -27,10 +28,17 @@ class AddSuperhero extends React.Component {
     }
   }
 
-  handleChange = event => {
+  handleChangeName = event => {
     this.setState({
       names: this.state.names,
       newName: event.target.value
+    })
+  }
+
+  handleChangePower = event => {
+    this.setState({
+      names: this.state.names,
+      newPower: event.target.value
     })
   }
 
@@ -55,7 +63,9 @@ class AddSuperhero extends React.Component {
         <div>
           <form>
             <label htmlFor="name"> Enter a new Superhero! </label>
-            <input type="text" id= "name" name="name" onChange={this.handleChange} value={this.state.newName}/>
+            <input type="text" id= "name" name="name" onChange={this.handleChangeName} value={this.state.newName}/>
+            <label htmlFor="power"> Enter the Superhero's power! </label>
+            <input type="text" id= "power" name="power" onChange={this.handleChangePower} value={this.state.newPower} />
             <button onClick={this.nameSubmit}>Submit new hero</button>
           </form>
         </div>
