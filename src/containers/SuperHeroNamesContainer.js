@@ -10,12 +10,13 @@ class SuperheroNamesContainer extends React.Component {
 
   getName = event => {
     this.setState({
-      randomName: this.props.allNames[Math.floor(Math.random() * this.props.allNames.length)]
+      randomName: Object.keys(this.props.allNames.names[Math.floor(Math.random() * this.props.allNames.names.length)])
     })
     console.log("generated new name from list")
   };
 
   render() {
+
     return (
 
       <div>

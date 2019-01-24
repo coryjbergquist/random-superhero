@@ -6,8 +6,8 @@ class AddSuperhero extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: ["superman", "batman", "thor", "iron man", "dr. strange", "spiderman", "aquaman"],
-      newName: ""
+      names: [{"Superman": "can fly"}, {"Batman": "has money"}, {"Thor": "is strong"}, {"Iron man": "has a big brain"}, {"Dr. Strange": "has magic"}, {"Spiderman": "can shoot webs"}, {"Aquaman": "can breathe under water"}],
+      newName: "",
     }
   }
 
@@ -51,7 +51,7 @@ class AddSuperhero extends React.Component {
     return (
 
       <div>
-        <SuperheroNamesContainer allNames = {this.state.names}/>
+        <SuperheroNamesContainer allNames = {this.state}/>
         <div>
           <form>
             <label for="name"> Enter a new Superhero! </label>
