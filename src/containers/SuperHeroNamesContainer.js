@@ -4,13 +4,13 @@ class SuperheroNamesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomName: "",
+      randomName: {"": ""},
     }
   }
 
   getName = event => {
     this.setState({
-      randomName: Object.keys(this.props.allNames.names[Math.floor(Math.random() * this.props.allNames.names.length)])
+      randomName: this.props.allNames.names[Math.floor(Math.random() * this.props.allNames.names.length)]
     })
     console.log("generated new name from list")
   };
@@ -28,7 +28,13 @@ class SuperheroNamesContainer extends React.Component {
         </p>
         <p>
           {/* this shows the empty this.state.randomName, which will be updated on button click */ }
-          {this.state.randomName}
+          {Object.keys(this.state.randomName)}
+        </p>
+        <p>
+          Your powers will be:
+        </p>
+        <p>
+          {Object.values(this.state.randomName)}
         </p>
 
       </div>
