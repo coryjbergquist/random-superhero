@@ -12,8 +12,8 @@ class AddSuperhero extends React.Component {
     }
   }
 
-  titleCase = (str) => {
-    let newName = str.split(' ')
+  titleCase = (name) => {
+    let newName = name.split(' ')
    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
    .join(' ')
    return newName;
@@ -46,8 +46,9 @@ class AddSuperhero extends React.Component {
     event.preventDefault()
     console.log(`adding the name: ${this.state.newName}`)
     if (this.state.newName !== "" && this.checkBadWords(this.state.newName, badWords)) {
+      console.log(this.state.newName)
       this.setState(prevState => ({
-      names: [this.titleCase(this.state.newName), ...prevState.names],
+      names: [{[this.titleCase(this.state.newName)]: this.state.newPower}, ...prevState.names],
       newName: ""
     }),function(){console.log(`New list of heroes: ${this.state.names}.`)});
   } else {
@@ -62,9 +63,9 @@ class AddSuperhero extends React.Component {
         <SuperheroNamesContainer allNames = {this.state}/>
         <div>
           <form>
-            <label htmlFor="name"> Enter a new Superhero! </label>
+            <label htmlFor="name"> Enter a new Superhero!: </label>
             <input type="text" id= "name" name="name" onChange={this.handleChangeName} value={this.state.newName}/>
-            <label htmlFor="power"> Enter the Superhero's power! </label>
+            <label htmlFor="power"> Enter the Superhero's power!: </label>
             <input type="text" id= "power" name="power" onChange={this.handleChangePower} value={this.state.newPower} />
             <button onClick={this.nameSubmit}>Submit new hero</button>
           </form>
